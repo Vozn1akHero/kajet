@@ -1,0 +1,51 @@
+@import '../../../assets/sass/variables';
+
+.mainpage{
+  height: 100vh;
+  width: 100vw;
+  background: url('../../../images/mp-bg.jpg') no-repeat;
+
+
+  .main-panel{
+    margin-top: 16rem;
+    padding-left: 15rem;
+
+    &__part{
+      display: flex;
+      flex-direction: column;
+
+      &--1, &--2, &--3{
+        color: $color-white;
+      }
+
+      &--1{
+        h1{
+          font-size: 2.5rem;
+          font-weight: 500;
+        }
+
+        span{
+          color: $color-blue;
+        }
+      }
+
+      &--2{
+        p{
+          margin-top: -.5rem;
+        }
+      }
+
+      &--3{
+        .signup-btn{
+          margin-top: 3rem;
+          background: $color-blue;
+          border: none;
+          color: $color-white;
+          height: 7rem;
+          width: 19rem;
+          font-size: 1.35rem;
+        }
+      }
+    }
+  }
+}

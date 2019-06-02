@@ -1,0 +1,38 @@
+@import '../../assets/sass/variables';
+
+.edit-card-popup{
+  &__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input{
+      width: 48rem;
+    }
+
+    .card-newTitle-input{
+
+    }
+
+    .card-newDesc-input{
+      margin-top: 1rem;
+    }
+
+    .card-submitChanges-btn{
+      margin-top: 2rem;
+      background: $color-blue;
+      border: none;
+      color: $color-white;
+      height: 5rem;
+      width: 15rem;
+      transition: .2s;
+
+      &:hover{
+        border: 1px solid $color-blue;
+        background: transparent;
+        color: $color-blue;
+      }
+    }
+  }
+}

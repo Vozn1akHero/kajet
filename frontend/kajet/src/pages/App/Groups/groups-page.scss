@@ -1,0 +1,71 @@
+@import '../../../assets/sass/variables';
+
+.groups-page{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  position: relative;
+  padding: 5rem 0 0 5rem;
+  height: 100%;
+  background: $color-bg-lightgrey;
+
+  .group-cards{
+    .groupCardWrapper:not(:first-child){
+      margin-top: 1rem;
+    }
+  }
+
+  .chosen-group{
+    position: relative;
+    margin-left: 5rem;
+    width: 35%;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    hr{
+      height: 95.5%;
+      width: 1px;
+      margin: 0;
+      position: absolute;
+      left: -2rem;
+      opacity: .4;
+    }
+
+    .choose-group-text{
+      font-size: 1.5rem;
+      margin-top: 6rem;
+    }
+  }
+
+  .new-group-btn-wrapper{
+    position: absolute;
+    top: 5rem;
+    right: 10rem;
+    width: 30rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .new-group-btn{
+    background: #FFDC00;
+    height: 5rem;
+    width: 15rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: .2s;
+
+    &:hover{
+      border: 1px solid #FFDC00;
+      background: transparent;
+      color: #FFDC00;
+    }
+  }
+}

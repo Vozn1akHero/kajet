@@ -1,0 +1,67 @@
+@import '../../../assets/sass/variables';
+
+.new-collection-page{
+  padding: 5rem 0 0 5rem;
+  height: 100%;
+  background: $color-bg-lightgrey;
+
+  form{
+    width: 55vw;
+
+    .collection-title{
+
+      width: 100%;
+    }
+
+    .add-new-collection-btn{
+      background: $color-blue;
+      width: 15rem;
+      height: 6rem;
+      color: white;
+      margin-top: 5rem;
+      transition: .2s;
+
+      &:hover{
+        border: 1px solid $color-blue;
+        background: transparent;
+        color: $color-blue;
+      }
+    }
+
+    .new-cards{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+      padding-bottom: 7rem;
+      padding-right: 2.5rem;
+      padding-top: 2rem;
+      margin-top: 5rem;
+      background: $color-white;
+
+      &__list{
+        list-style: none;
+      }
+
+      &__add-one-btn{
+        background: $color-bg-darkgrey;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+        font-size: 3rem;
+        border-radius: 50%;
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        font-weight: 300;
+        transition: .2s;
+
+        &:hover{
+          border: 1px solid $color-bg-darkgrey;
+          background: $color-bg-lightgrey;
+          color: $color-bg-darkgrey;
+        }
+      }
+    }
+  }
+}

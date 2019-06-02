@@ -1,0 +1,75 @@
+@import '../../../assets/sass/variables';
+
+.settings-page{
+  position: relative;
+  height: 100%;
+  padding: 5rem 0 0 5rem;
+  background: $color-bg-lightgrey;
+
+  .remove-acc{
+    position: absolute;
+    top: 5rem;
+    right: 10rem;
+    padding: 3rem;
+
+    button{
+      background: #ff2f25;
+      transition: .1s;
+      height: 4.5rem;
+      width: 15rem;
+      color: $color-white;
+
+      &:hover{
+        border: 1px solid #ff2f25;
+        background: transparent;
+        color: #ff2f25;
+      }
+    }
+  }
+
+  .email-change, .password-change{
+    margin-top: 5rem;
+  }
+
+  .name-change, .email-change, .password-change{
+    width: fit-content;
+    padding: 2rem;
+
+    button{
+      height: 4.5rem;
+      width: 15rem;
+      background: $color-blue;
+      color: white;
+      margin-left: 3rem;
+      transition: .1s;
+
+      &:hover{
+        border: 1px solid $color-blue;
+        background: transparent;
+        color: $color-blue;
+      }
+    }
+  }
+
+  input{
+    width: 25rem;
+  }
+
+  .name-change{
+
+  }
+
+  .email-change{
+
+  }
+
+  .password-change{
+    .old-pass{
+
+    }
+
+    .new-pass{
+      margin-left: 2rem;
+    }
+  }
+}

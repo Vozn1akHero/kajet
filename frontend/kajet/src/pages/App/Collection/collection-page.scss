@@ -1,0 +1,104 @@
+@import '../../../assets/sass/variables';
+
+.collection-page{
+  height: 100%;
+
+  &__header{
+    clear: both;
+    display: table;
+    /* background: #f8f8f8; */
+    width: 100%;
+    /* height: 15vh; */
+    height: 20%;
+    padding-top: 5vh;
+
+    .collection-title {
+      display: flex;
+      padding-left: 5rem;
+
+      &__wrapper{
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+
+        h2 {
+          float: left;
+          font-size: 2.5rem;
+          margin: 0 0 1rem 0;
+        }
+      }
+
+    }
+
+    .collection__editing-btn{
+      height: 2.3rem;
+      width: 2.3rem;
+      margin-top: .9rem;
+      margin-left: 3rem;
+      transition: .5s;
+
+      &__icon{
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+        fill: #3f3f3f;
+
+        &:hover{
+          opacity: 1;
+        }
+      }
+
+    }
+
+    .collection-title-editing{
+      &__wrapper{
+        display: flex;
+        align-items: center;
+        padding-left: 5rem;
+
+        .cancel-change-title-btn{
+          background: #ff2f25;
+          height: 3rem;
+          padding: 0 1.5rem;
+          color: $color-white;
+          opacity: .5;
+          transition: .3s;
+
+          &:hover{
+            opacity: 1;
+          }
+        }
+
+        form{
+          .change-title-input{
+            width: 20rem;
+          }
+
+          .change-title-btn{
+            background: $color-blue;
+            height: 3rem;
+            margin: 0 2rem;
+            padding: 0 1.5rem;
+            color: $color-white;
+            opacity: .5;
+            transition: .3s;
+
+            &:hover{
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .cards{
+    display: flex;
+
+    padding-left: 5rem;
+    background: $color-bg-lightgrey;
+    /* padding-top: 3rem; */
+    height: 80%;
+  }
+}

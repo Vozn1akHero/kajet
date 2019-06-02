@@ -1,0 +1,49 @@
+@import '../../../assets/sass/variables';
+
+$size: 32.1rem;
+
+.navigation-page {
+  display: flex; position: relative;
+
+  .create-new-set-btn {
+    position: absolute;
+    bottom: 6rem;
+    right: 6rem;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    text-decoration: none;
+    background: $color-blue;
+    border-radius: 50%;
+    box-shadow: rgba($color-blue, .45) 0px 1px 0.5rem 0px;
+    transition: .2s;
+    z-index: 1000;
+
+    &:hover{
+      transform: translateY(-.5rem);
+      border: 1px solid $color-blue;
+      background: transparent;
+
+      span{
+        color: $color-blue;
+      }
+    }
+
+    span{
+      width: 100%;
+      font-size: 4rem;
+      height: 100%;
+      color: $color-white;
+      font-weight: 100;
+    }
+  }
+
+
+
+  .chosen-subpage {
+    width: 78%;
+    height: 100vh;
+    //padding: 3rem 2rem 0 6rem;
+  }
+
+}

@@ -1,0 +1,31 @@
+/*
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body{
+    font-size: 10px;
+}
+
+body{
+
+}
+
+button{
+    background: none;
+    outline: none;
+    border: none;
+}
+
+a:hover, button:hover{
+    cursor: pointer;
+}
+
+p, button, input{
+    font-size: 1.3rem;
+}
+
+input[type=text], input[type=password], input[type=email]{
+    padding-left: 1rem;
+}
+*/

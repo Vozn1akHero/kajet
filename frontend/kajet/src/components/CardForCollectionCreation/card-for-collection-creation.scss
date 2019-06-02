@@ -1,0 +1,20 @@
+@import '../../assets/sass/variables';
+
+.new-card{
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  input{
+    width: 24vw;
+
+  }
+
+  &__title{
+
+  }
+
+  &__description{
+    margin-left: 2rem;
+  }
+}

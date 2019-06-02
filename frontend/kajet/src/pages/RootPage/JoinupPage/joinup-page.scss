@@ -1,0 +1,58 @@
+@import '../../../assets/sass/variables';
+
+.joinup-page{
+  height: 100vh;
+  width: 100vw;
+  background: url("../../../images/juli-bg.jpg") no-repeat;
+
+  .joinup-sec {
+    display: flex;
+    justify-content: flex-end;
+
+    &__form {
+      width: 40rem;
+      padding: 4rem 3rem 2rem 3rem;
+      margin: 14rem 25vw 0 0;
+      background: $color-bg-lightgrey;
+
+
+      .pass-recovery {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          font-size: 1.3rem;
+          margin-right: .4rem;
+          text-decoration: none;
+          color: $color-blue;
+        }
+      }
+    }
+
+    &__email, &__pass, &__name, &__joinup-btn {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &__email, &__pass, &__name {
+      height: 3rem;
+      width: 27rem;
+      outline: none;
+      border: none;
+    }
+
+    &__pass, &__email {
+      margin-top: .7rem;
+    }
+
+    &__joinup-btn {
+      margin-top: 2rem;
+      background: $color-blue;
+      border: none;
+      color: $color-white;
+      height: 5rem;
+      width: 15rem;
+    }
+  }
+}

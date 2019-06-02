@@ -1,0 +1,28 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  padding: 8rem;
+
+  &__logo{
+    height: 2.5rem;
+    width: 9.4rem;
+
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__auth-panel{
+    .btn{
+      height: 4rem;
+      width: 10rem;
+      background: none;
+      outline: none;
+      color: grey;
+      border: 1px solid grey;
+    }
+  }
+}

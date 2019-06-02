@@ -1,0 +1,69 @@
+@import '../../../assets/sass/variables';
+
+.new-group-page{
+  padding: 5rem 7rem 0 7rem;
+  background: $color-bg-lightgrey;
+  height: 100%;
+
+  form {
+    .group-title-input{
+
+      width: 100%;
+    }
+
+    .add-new-group-btn{
+      margin-top: 5rem;
+      background: $color-blue;
+      width: 15rem;
+      height: 5rem;
+      color: white;
+      transition: .1s;
+
+      &:hover{
+        border: 1px solid $color-blue;
+        background: transparent;
+        color: $color-blue;
+      }
+    }
+
+    .all-collections {
+      margin-top: 2rem;
+
+      .collections-search-input-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+
+
+        .collections-search-input {
+          width: 31rem;
+          background: transparent;
+          border: none;
+          border-bottom: 1.33px solid #b4b4b4;
+
+          &__icon {
+            width: 1.7rem;
+            height: 2rem;
+            position: absolute;
+            top: .5rem;
+            right: 1rem;
+            fill: #b4b4b4;
+          }
+
+          &:focus{
+            outline: none;
+          }
+
+        }
+      }
+
+      .found-collections-wrapper{
+        margin-top: 5rem;
+        min-height: 15rem;
+        display: flex;
+        flex-wrap: wrap;
+
+      }
+    }
+  }
+}
