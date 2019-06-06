@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import CollectionCardForGroupCreation from "../../../components/CollectionCardForGroupCreation/CollectionCardForGroupCreation";
 
-import {getCollections} from "../../../actions/collectionActions";
-import {addGroup} from "../../../actions/groupActions";
+import {getCollections} from "../../../redux/actions/collectionActions";
+import {addGroup} from "../../../redux/actions/groupActions";
 
 import "./newgroup-page.scss"
 import svg from "../../../images/sprite.svg";
@@ -21,9 +21,7 @@ class NewGroup extends Component {
     }
 
     async componentWillMount() {
-        if(this.props.collections.length === 0){
-          await this.props.getCollections();
-        }
+        await this.props.getCollections();
 
         this.setState({
             allCollections: this.props.collections,
@@ -72,27 +70,33 @@ class NewGroup extends Component {
         return (
             <div className="new-group-page">
                 <form>
-                    <input type="text"
-                           className="group-title-input"
-                           onChange={this.setGroupTitle}
-                           placeholder="Nazwa grupy"/>
+                    <header>
+                        <div className="header-wrapper">
+                            <div className="group-title-input-wrapper">
+                                <input type="text"
+                                       className="group-title-input"
+                                       onChange={this.setGroupTitle}
+                                       placeholder="Nazwa grupy"/>
+                            </div>
+
+                            <div className="collections-search-input-wrapper">
+                                <input type="text"
+                                       className="collections-search-input"
+                                       placeholder="Szukaj"
+                                       onChange={this.lookForCollections}/>
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                                    className="collections-search-input__icon">
+                                    <use xlinkHref={`${svg}#icon-search`} />
+                                </svg>
+                            </div>
+                        </div>
+                    </header>
+
 
                     <section className="all-collections">
-                        <div className="collections-search-input-wrapper">
-                            <input type="text"
-                                   className="collections-search-input"
-                                   placeholder="Szukaj"
-                                   onChange={this.lookForCollections}/>
-
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                            className="collections-search-input__icon">
-                                <use xlinkHref={`${svg}#icon-search`} />
-                            </svg>
-                        </div>
-
-
                         <section className="found-collections-wrapper"
                         style={{justifyContent: this.state.foundCollections.length === 0 ? 'center' : 'normal',
                             alignItems: this.state.foundCollections.length === 0 ? 'center' : 'normal'}}>
@@ -109,11 +113,11 @@ class NewGroup extends Component {
                                     />)
                             }
                         </section>
-                    </section>
 
-                    <button type="submit"
-                            className="add-new-group-btn"
-                            onClick={this.createGroup}>Stwórz</button>
+                        <button type="submit"
+                                className="add-new-group-btn"
+                                onClick={this.createGroup}>Stwórz</button>
+                    </section>
                 </form>
             </div>
         );

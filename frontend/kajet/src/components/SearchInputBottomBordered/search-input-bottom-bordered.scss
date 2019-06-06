@@ -1,0 +1,21 @@
+@import '../../assets/sass/variables';
+
+.search-input-bottom-bordered {
+    position: relative;
+    width: fit-content;
+
+    input {
+      border: 0;
+      border-bottom: 1px solid #b4b4b4;
+      color: $color-bg-darkgrey;
+    }
+
+    svg {
+      width: 1.7rem;
+      height: 2rem;
+      position: absolute;
+      top: .7rem;
+      right: 1rem;
+      fill: #b4b4b4;
+  }
+}

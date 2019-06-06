@@ -41,3 +41,7 @@ input[type=text], input[type=password], input[type=email]{
     outline: none;
   }
 }
+
+svg{
+  pointer-events: none;
+}

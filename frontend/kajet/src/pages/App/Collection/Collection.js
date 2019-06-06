@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {getCollectionById,
     updateCollectionCardsById,
-    updateCollectionTitleById} from "../../../actions/collectionActions";
+    updateCollectionTitleById} from "../../../redux/actions/collectionActions";
 import apolloFetch from "../../../cfg/apollo-fetch";
 
 
@@ -11,6 +11,7 @@ import "./collection-page.scss"
 import LoaderForSection from "../../../components/LoaderForSection/LoaderForSection";
 import Card from "../../../components/Card/Card";
 import svg from "../../../images/sprite.svg";
+import InputBottomBordered from "../../../components/InputBottomBordered/InputBottomBordered";
 
 
 class Collection extends Component {
@@ -20,7 +21,8 @@ class Collection extends Component {
         this.state = {
             collectionId: this.props.match.params.id,
             titleEditing: false,
-            newCollectionTitle: ""
+            newCollectionTitle: "",
+            newCollectionTitleFormError: false
         }
     }
 
@@ -58,6 +60,17 @@ class Collection extends Component {
     changeCollectionTitle = async e => {
         e.preventDefault();
 
+        if (this.state.newCollectionTitle.length === 0) {
+            this.setState({
+                newCollectionTitleFormError: true
+            });
+
+            return;
+        }
+        else this.setState({
+            newCollectionTitleFormError: true
+        });
+
         const newCollectionTitle = await apolloFetch({
             query :  `
               mutation{
@@ -82,37 +95,8 @@ class Collection extends Component {
             return (
                 <div className="collection-page">
                     <section className="collection-page__header">
-                        <div hidden={!this.state.titleEditing} className="collection-title-editing">
-                            <div className="collection-title-editing__wrapper">
-                                <form onSubmit={this.changeCollectionTitle}>
-                                    <input type="text"
-                                           onChange={e => { this.setState({ newCollectionTitle: e.target.value })}}
-                                           className="change-title-input"
-                                    />
-
-                                    <button type="submit"
-                                    className="change-title-btn">Zapisz</button>
-                                </form>
-                                <button onClick={this.turnOnOffEditing}
-                                        className="cancel-change-title-btn">Cancel</button>
-                            </div>
-                        </div>
-
-                        <div className="collection-title"
-                            hidden={this.state.titleEditing}>
-                            <div className="collection-title__wrapper">
-                                <h2>
-                                    { this.props.collection.title }
-                                </h2>
-
-                                <span className="collection-termamount">
-                                    {this.props.collection.cards.length} pojęć
-                                </span>
-                            </div>
-
-
-                            <button className="collection__editing-btn"
-                                onClick={this.turnOnOffEditing}>
+                        <div className="collection-editing-btn">
+                            <button onClick={this.turnOnOffEditing}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -122,6 +106,41 @@ class Collection extends Component {
                                 </svg>
                             </button>
                         </div>
+
+                        <div hidden={!this.state.titleEditing} className="collection-title-editing">
+                            <div className="collection-title-editing__wrapper">
+                                <form onSubmit={this.changeCollectionTitle}>
+                                    <InputBottomBordered onInputChange={(newTitle) => { this.setState({
+                                        newCollectionTitle: newTitle })}}
+                                         styles={{width: '30rem'}}
+                                         placeholder={"Wprowadż nową nazwę"}
+                                    />
+
+                                    <button type="submit"
+                                    className="change-title-btn">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                                        >
+                                            <use xlinkHref={`${svg}#icon-checkmark`} />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className="collection-title">
+                            <div className="collection-title__wrapper">
+                                <h2 hidden={this.state.titleEditing}>
+                                    { this.props.collection.title }
+                                </h2>
+
+                                <span hidden={this.state.titleEditing} className="collection-termamount">
+                                    {this.props.collection.cards.length} pojęć
+                                </span>
+                            </div>
+                        </div>
+
                     </section>
 
                     <section className="cards">

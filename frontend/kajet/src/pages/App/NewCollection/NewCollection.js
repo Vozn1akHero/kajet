@@ -5,7 +5,7 @@ import "./newcollection-page.scss"
 import CardForCollectionCreation from "../../../components/CardForCollectionCreation/CardForCollectionCreation"
 
 import { connect } from 'react-redux';
-import { addCollection } from '../../../actions/collectionActions';
+import { addCollection } from '../../../redux/actions/collectionActions';
 
 
 class NewCollection extends Component {

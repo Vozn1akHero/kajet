@@ -1,21 +1,20 @@
 import {
     GET_GROUPS,
     ADD_GROUP,
-    REMOVE_GROUP_BY_ID
-} from '../actions/types';
+    REMOVE_GROUP_BY_ID, GET_GROUPS_PENDING
+} from './types';
 
-import apolloFetch from "../cfg/apollo-fetch"
+import apolloFetch from "../../cfg/apollo-fetch"
 
 
-export const addGroup = (title, collections) => async dispatch => {
-    console.log(title, collections);
-
+export const addGroup = (title, collections) => dispatch => {
     let collectionsString = "";
     for(const [index, collectionId] of collections.entries()){
         if(collections.length - index === 1) collectionsString += `"${collectionId}"`;
         else collectionsString += `"${collectionId}", `;
     }
-    const groups = await apolloFetch({
+
+    apolloFetch({
         query: `
             mutation {
               addGroup(title: "${title}", collections: [
@@ -33,16 +32,22 @@ export const addGroup = (title, collections) => async dispatch => {
               }
             }
         `
-    }).then(res => { return res.data.addGroup });
-
-    dispatch({
-        type: ADD_GROUP,
-        payload: groups
-    })
+    }).then(res => {
+        dispatch({
+            type: ADD_GROUP,
+            payload: res.data.addGroup
+        })
+    });
 };
 
-export const getGroups = () => async dispatch => {
-    const groupsRes = await apolloFetch({
+export const getGroups = () => async (dispatch, getState) => {
+    if(getState().group.groups.length > 0) return;
+
+    dispatch({
+        type: GET_GROUPS_PENDING
+    });
+
+    await apolloFetch({
         query: `
             query{
               getGroups{
@@ -58,12 +63,12 @@ export const getGroups = () => async dispatch => {
               }
             }
         `
-    }).then(res => res.data.getGroups);
-
-    dispatch({
-        type: GET_GROUPS,
-        payload: groupsRes
-    })
+    }).then(res => {
+        dispatch({
+            type: GET_GROUPS,
+            payload: res.data.getGroups
+        })
+    });
 };
 
 export const removeGroupById = id => async dispatch => {
@@ -73,7 +78,7 @@ export const removeGroupById = id => async dispatch => {
               removeGroup(id: "${id}")
             }
         `
-    }).then(res => res.data);
+    });
 
     dispatch({
         type: REMOVE_GROUP_BY_ID,

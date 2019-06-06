@@ -17,12 +17,12 @@ const SideNavbar = props => {
 
                             <Link to="/app/collections">
                                 <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    className="navigation__controls__icon"
-                                >
-                                    <use xlinkHref={`${svg}#icon-make-group`} />
-                                </svg>
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlnsXlink="http://www.w3.org/1999/xlink"
+                                className="navigation__controls__icon"
+                            >
+                                <use xlinkHref={`${svg}#icon-make-group`} />
+                            </svg>
                             </Link>
                             <Link to="/app/groups">
                                 <svg

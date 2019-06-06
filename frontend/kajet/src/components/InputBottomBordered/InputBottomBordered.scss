@@ -1,0 +1,9 @@
+@import '../../assets/sass/variables';
+
+.input-bottom-bordered {
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #b4b4b4;
+  color: $color-bg-darkgrey;
+}

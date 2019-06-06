@@ -9,7 +9,7 @@ import Rootpage from "./pages/RootPage/Rootpage";
 import { checkIfUserIsLoggedIn } from "./security/auth/Auth";
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux/store';
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 class App extends React.Component{

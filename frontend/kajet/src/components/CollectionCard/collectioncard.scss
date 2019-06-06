@@ -2,30 +2,71 @@
 
 .collection-card{
   background: $color-white;
-  width: 30rem;
-  max-height: 10rem;
-  padding: 2rem;
+  width: 50rem;
+  height: 13rem;
   display: flex;
-  flex-direction: column;
   margin: 1rem;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.15);
 
-  border-left: 2px solid $color-blue;
+  &:not(:first-child){ margin-top: 2rem; }
+
+  .card-left-wrapper{
+    width: 64%;
+    padding: 2rem 0 0 2rem;
+
+    .title-wrapper, .terms-amount-wrapper{
+      display: flex;
+      flex-direction: column;
+
+      span{
+        color: grey;
+      }
+    }
+
+    .terms-amount-wrapper{
+
+    }
+  }
+
+  .side-nav-wrapper{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(34% 0, 100% 0, 100% 100%, 0% 100%);
+    background: linear-gradient(45deg, #fff000 0%, #00b4f7 100%);
+    padding-left: 3rem;
+
+    .add-date-wrapper{
+      text-align: center;
+
+      span{
+        display: block;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__title, &__terms-amount{
+    margin-bottom: .3rem;
+  }
 
   &__title{
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    color: black;
-    margin: 0 0 1rem 0;
+    color: $color-blue;
+
   }
 
   &__terms-amount{
-    color: grey;
+    margin-top: 2rem;
+    font-size: 1.2rem;
   }
 
   &__controls{
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 1.1rem;
 
     button{
       height: 3rem;
@@ -35,8 +76,14 @@
       border: none;
 
       svg{
+        fill: $color-white;
         width: 100%;
         height: 100%;
+        transition: .2s;
+
+        &:hover{
+          fill: $color-bg-lightgrey;
+        }
       }
     }
   }

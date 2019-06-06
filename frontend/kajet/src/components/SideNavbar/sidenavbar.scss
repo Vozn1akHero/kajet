@@ -5,6 +5,7 @@
   height: 100vh;
 
   background: url("../../images/nav-bg.jpg") no-repeat;
+  background-size: cover;
 
   &__logo {
     width: 8rem;
@@ -26,17 +27,18 @@
       }
     }
 
+    a:hover, button:hover{
+      svg{
+        opacity: .5;
+      }
+    }
+
     &__icon {
       margin: 1.5rem 1.8rem;
       width: 3rem;
       height: 3rem;
       transition: .2s;
       fill: $color-white;
-
-      &:hover{
-
-        opacity: .5;
-      }
     }
   }
 

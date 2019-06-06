@@ -1,4 +1,5 @@
 import {
+    GET_COLLECTIONS_PENDING,
     GET_COLLECTIONS,
     GET_COLLECTION_BY_ID,
     ADD_COLLECTION,
@@ -6,18 +7,24 @@ import {
     UPDATE_COLLECTION_CARDS_BY_ID, UPDATE_COLLECTION_TITLE_BY_ID
 } from '../actions/types';
 
-import update from 'immutability-helper';
 
 const initialState = {
+    pending: false,
     collections: [],
     collection: {}
 };
 
 export default function(state = initialState, action) {
     switch (action.type) {
+        case GET_COLLECTIONS_PENDING:
+            return {
+                ...state,
+                pending: true
+            };
         case GET_COLLECTIONS:
             return {
                 ...state,
+                pending: false,
                 collections: action.payload
             };
         case GET_COLLECTION_BY_ID:
@@ -60,3 +67,5 @@ export default function(state = initialState, action) {
             return state;
     }
 }
+
+export const getCollectionsSelector = state => state.collections;

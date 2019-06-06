@@ -24,22 +24,36 @@ const GroupCard = props => {
 
     return (
         <div className="group-card">
-            <button className="choose-collection-btn"
+            <button className="select-group-btn"
                     onClick={selectGroup}></button>
-            <p className="group-card__title">
-                {props.title}
-            </p>
-            <span className="group-card__terms-amount">{props.collectionAmount} kolekcji</span>
-            <div className="group-card__controls">
-                <button onClick={removeGroup}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                        className="group-card__controls__icon"
-                    >
-                        <use xlinkHref={`${svg}#icon-bin2`} />
-                    </svg>
-                </button>
+
+            <div className="card-left-wrapper">
+                <div className="title-wrapper">
+                    <p className="group-card__title">
+                        {props.title}
+                    </p>
+                    <span>tytuł</span>
+                </div>
+
+                <div className="terms-amount-wrapper">
+                    <p className="group-card__terms-amount">{props.collectionAmount} określeń</p>
+                    <span>ilość znajdujących się w środku kolekcji w kolekcji</span>
+                </div>
+            </div>
+
+            <div className="side-nav-wrapper" style={{background: props.isGroupSelected
+                    ? '#00baff' : 'linear-gradient(95deg, #fff000 0%, #ffda8e 100%)' }}
+            >
+                <div className="group-card__controls">
+                    <button onClick={removeGroup}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                        >
+                            <use xlinkHref={`${svg}#icon-bin2`} />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     );

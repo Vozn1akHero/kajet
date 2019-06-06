@@ -1,30 +1,70 @@
 @import '../../assets/sass/variables';
 
+
 .collection-card-for-groups-page{
   background: $color-white;
-  width: 32rem;
-  padding: 2rem;
+  width: 40rem;
+  height: 13rem;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  margin-left: -2rem;
-  border-left: 2px solid $color-blue;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.15);
+
+  .card-left-wrapper{
+    width: 90%;
+    padding: 2rem 0 0 2rem;
+
+    .title-wrapper, .terms-amount-wrapper{
+      display: flex;
+      flex-direction: column;
+
+      span{
+        color: grey;
+      }
+    }
+
+    .terms-amount-wrapper{
+
+    }
+  }
+
+  .side-nav-wrapper{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #fff000 0%, #00b4f7 100%);
+    padding-left: 3rem;
+
+    .add-date-wrapper{
+      text-align: center;
+
+      span{
+        display: block;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__title, &__terms-amount{
+    margin-bottom: .3rem;
+  }
 
   &__title{
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    color: black;
-    margin-bottom: 2rem;
+    color: $color-blue;
+
   }
 
   &__terms-amount{
-    color: grey;
+    margin-top: 2rem;
+    font-size: 1.2rem;
   }
 
   &__controls{
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 1.1rem;
 
     button{
       height: 3rem;
@@ -34,8 +74,14 @@
       border: none;
 
       svg{
+        fill: $color-white;
         width: 100%;
         height: 100%;
+        transition: .2s;
+
+        &:hover{
+          fill: $color-bg-lightgrey;
+        }
       }
     }
   }

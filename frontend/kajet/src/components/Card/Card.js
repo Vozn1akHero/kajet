@@ -23,7 +23,6 @@ class CollectionCard extends Component{
       this.props.changeCardData(data);
     };
 
-
     render() {
         return (
             <div className="card">
@@ -33,18 +32,30 @@ class CollectionCard extends Component{
                     changeCardData={this.changeCardData}
                     {...this.props}/>
 
-                <div className="card__title">
-                    <h1>
-                        {this.props.title}
-                    </h1>
-                </div>
-                <div className="card__desc">
-                    <p>
-                        {this.props.description}
-                    </p>
+                <div className="card__main-info-wrapper">
+                    <div className="card__title">
+                        <h1>
+                            {this.props.title}
+                        </h1>
+                    </div>
+                    <div className="card__desc">
+                        <p>
+                            {this.props.description}
+                        </p>
+                    </div>
                 </div>
 
                 <section className="card__controls">
+                    <button
+                        className="card__attach-btn"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                        >
+                            <use xlinkHref={`${svg}#icon-star-full`}/>
+                        </svg>
+                    </button>
                     <button
                         className="card__editing-btn"
                         onClick={this.turnOnOffEditing}
@@ -52,9 +63,19 @@ class CollectionCard extends Component{
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
-                            className="icon"
                         >
                             <use xlinkHref={`${svg}#icon-pencil`}/>
+                        </svg>
+                    </button>
+
+                    <button
+                        className="card__remove-btn"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                        >
+                            <use xlinkHref={`${svg}#icon-bin2`}/>
                         </svg>
                     </button>
                 </section>

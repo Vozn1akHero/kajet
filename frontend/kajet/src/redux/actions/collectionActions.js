@@ -1,4 +1,5 @@
 import {
+    GET_COLLECTIONS_PENDING,
     GET_COLLECTIONS,
     GET_COLLECTION_BY_ID,
     ADD_COLLECTION,
@@ -7,10 +8,16 @@ import {
     UPDATE_COLLECTION_TITLE_BY_ID
 } from './types';
 
-import apolloFetch from "../cfg/apollo-fetch"
+import apolloFetch from "../../cfg/apollo-fetch"
 
-export const getCollections = () => async dispatch => {
-     const collectionsRes = await apolloFetch({
+export const getCollections = () => async (dispatch, getState) => {
+    if(getState().collection.collections.length > 0) return;
+
+    dispatch({
+        type: GET_COLLECTIONS_PENDING
+    });
+
+    await apolloFetch({
         query :  `
           query{
               getCollections{
@@ -24,12 +31,12 @@ export const getCollections = () => async dispatch => {
               }
             }
         `
-    }).then(res => res.data.getCollections);
-
-    dispatch({
+    }).then(res => {
+        dispatch({
         type: GET_COLLECTIONS,
-        payload: collectionsRes
-    })
+        payload: res.data.getCollections
+        })
+    });
 };
 
 export const getCollectionById = id => async dispatch => {
