@@ -13,21 +13,6 @@
       width: 100%;
     }
 
-    .add-new-collection-btn{
-      background: $color-blue;
-      width: 15rem;
-      height: 6rem;
-      color: white;
-      margin-top: 5rem;
-      transition: .2s;
-
-      &:hover{
-        border: 1px solid $color-blue;
-        background: transparent;
-        color: $color-blue;
-      }
-    }
-
     .new-cards{
       display: flex;
       flex-direction: column;

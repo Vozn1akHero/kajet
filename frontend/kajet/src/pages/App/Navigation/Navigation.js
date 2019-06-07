@@ -2,8 +2,6 @@ import React, {Component, Fragment} from 'react';
 import {Link, Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import { checkIfUserIsLoggedIn, logOut } from "../../../security/auth/Auth";
 
-
-import Home from "../Home/Home";
 import Collections from "../Collections/Collections";
 import Groups from "../Groups/Groups";
 import Settings from "../Settings/Settings";

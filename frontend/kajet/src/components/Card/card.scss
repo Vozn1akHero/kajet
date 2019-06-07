@@ -49,7 +49,7 @@
     height: 100%;
   }
 
-  &__attach-btn, &__editing-btn,  &__remove-btn{
+  &__editing-btn,  &__remove-btn{
     width: 2.7rem;
     height: 2.7rem;
     transition: .2s;
@@ -72,7 +72,7 @@
   }
 
   &__editing-btn{
-
+    margin-top: 1rem;
   }
 
   &:not(:first-child){

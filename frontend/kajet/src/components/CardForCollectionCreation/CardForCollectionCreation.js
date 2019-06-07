@@ -14,8 +14,16 @@ class CardForCollectionCreation extends Component{
         return (
             <>
                 <li className="new-card">
-                    <input type="text" className="new-card__title" onChange={this.setCardTitle} placeholder="Tytuł"/>
-                    <input type="text" className="new-card__description" onChange={this.setCardDescription} placeholder="Opis"/>
+                    <input type="text"
+                           className="new-card__title"
+                           onChange={this.setCardTitle}
+                           placeholder="Tytuł"
+                           required/>
+                    <input type="text"
+                           className="new-card__description"
+                           onChange={this.setCardDescription}
+                           placeholder="Opis"
+                           required/>
                 </li>
             </>
         );

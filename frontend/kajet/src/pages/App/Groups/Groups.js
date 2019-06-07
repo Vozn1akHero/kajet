@@ -24,12 +24,15 @@ class Groups extends Component {
     }
 
     async componentWillMount() {
-        await this.props.getGroups();
+        await this.updateGroupList();
+    }
 
+    updateGroupList = async () => {
+        await this.props.getGroups();
         this.setState({
             allGroups: this.props.groups
         })
-    }
+    };
 
     selectGroup = id => {
         const selectedGroup = this.state.allGroups.filter(group => group.id === id)[0];
@@ -38,8 +41,10 @@ class Groups extends Component {
         })
     };
 
-    removeGroup = id => {
-        this.props.removeGroupById(id);
+    removeGroup = async id => {
+        await this.props.removeGroupById(id);
+
+        await this.updateGroupList();
     };
 
     render() {

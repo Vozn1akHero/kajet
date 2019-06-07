@@ -3,11 +3,12 @@
   justify-content: space-between;
   align-items: center;
   height: 3rem;
-  padding: 8rem;
+  padding: 6rem;
+  background: url("../../images/headerbg.jpg") no-repeat;
 
   &__logo{
-    height: 2.5rem;
-    width: 9.4rem;
+    height: 2.2rem;
+    width: 8.5rem;
 
     img{
       height: 100%;
@@ -23,6 +24,11 @@
       outline: none;
       color: grey;
       border: 1px solid grey;
+      transition: .2s;
+
+      &:hover{
+        opacity: .8;
+      }
     }
   }
 }

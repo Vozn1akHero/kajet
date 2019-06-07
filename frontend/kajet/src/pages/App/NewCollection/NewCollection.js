@@ -6,6 +6,7 @@ import CardForCollectionCreation from "../../../components/CardForCollectionCrea
 
 import { connect } from 'react-redux';
 import { addCollection } from '../../../redux/actions/collectionActions';
+import MainButton from "../../../components/MainButton/MainButton";
 
 
 class NewCollection extends Component {
@@ -68,11 +69,12 @@ class NewCollection extends Component {
     render() {
         return (
             <div className="new-collection-page">
-                <form>
+                <form onSubmit={this.submitCards}>
                     <input type="text"
                            className="collection-title"
                            onChange={this.setCollectionTitle}
-                           placeholder="Nazwa kolekcji"/>
+                           placeholder="Nazwa kolekcji"
+                           required/>
 
 
                     <section className="new-cards">
@@ -87,9 +89,10 @@ class NewCollection extends Component {
                         </button>
                     </section>
 
-                    <button type="submit"
-                            className="add-new-collection-btn"
-                            onClick={this.submitCards}>Stwórz</button>
+                    <MainButton
+                        styles={{marginTop: '5rem'}}
+                        title="Stwórz"
+                    />
                 </form>
             </div>
         );

@@ -7,6 +7,7 @@ import {addGroup} from "../../../redux/actions/groupActions";
 
 import "./newgroup-page.scss"
 import svg from "../../../images/sprite.svg";
+import MainButton from "../../../components/MainButton/MainButton"
 
 class NewGroup extends Component {
     constructor(props){
@@ -48,6 +49,8 @@ class NewGroup extends Component {
         e.preventDefault();
 
         await this.props.addGroup(this.state.title, this.state.chosenCollections);
+
+        this.props.history.push('/app/groups');
     };
 
     selectCard = (id, e) => {
@@ -69,14 +72,15 @@ class NewGroup extends Component {
     render() {
         return (
             <div className="new-group-page">
-                <form>
+                <form onSubmit={this.createGroup}>
                     <header>
                         <div className="header-wrapper">
                             <div className="group-title-input-wrapper">
                                 <input type="text"
                                        className="group-title-input"
                                        onChange={this.setGroupTitle}
-                                       placeholder="Nazwa grupy"/>
+                                       placeholder="Nazwa grupy"
+                                       required/>
                             </div>
 
                             <div className="collections-search-input-wrapper">
@@ -114,9 +118,10 @@ class NewGroup extends Component {
                             }
                         </section>
 
-                        <button type="submit"
-                                className="add-new-group-btn"
-                                onClick={this.createGroup}>Stwórz</button>
+                        <MainButton
+                            styles={{marginTop: '5rem'}}
+                            title="Stwórz"
+                        />
                     </section>
                 </form>
             </div>

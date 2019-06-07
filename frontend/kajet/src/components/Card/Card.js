@@ -47,16 +47,6 @@ class CollectionCard extends Component{
 
                 <section className="card__controls">
                     <button
-                        className="card__attach-btn"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                        >
-                            <use xlinkHref={`${svg}#icon-star-full`}/>
-                        </svg>
-                    </button>
-                    <button
                         className="card__editing-btn"
                         onClick={this.turnOnOffEditing}
                     >

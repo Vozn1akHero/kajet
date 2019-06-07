@@ -23,16 +23,21 @@ class Collections extends Component {
     }
 
     async componentWillMount() {
-        await this.props.getCollections();
-
-        this.setState({
-            allCollections: this.props.collections,
-            foundCollections: this.props.collections
-        })
+        await this.updateCollectionList();
     }
 
     removeCollection = async id => {
         await this.props.removeCollectionById(id);
+
+        await this.updateCollectionList();
+    };
+
+    updateCollectionList = async () => {
+        await this.props.getCollections();
+        this.setState({
+            allCollections: this.props.collections,
+            foundCollections: this.props.collections
+        })
     };
 
     lookForCollections = title => {

@@ -53,20 +53,5 @@
         flex-wrap: wrap;
       }
     }
-
-    .add-new-group-btn{
-      margin-top: 5rem;
-      background: $color-blue;
-      width: 15rem;
-      height: 5rem;
-      color: white;
-      transition: .1s;
-
-      &:hover{
-        border: 1px solid $color-blue;
-        background: transparent;
-        color: $color-blue;
-      }
-    }
   }
 }

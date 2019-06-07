@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './mainpage.scss'
 
 import Header from "../../../components/Header/Header";
+import MainButton from "../../../components/MainButton/MainButton";
 
 class Mainpage extends Component {
     render() {
@@ -22,7 +23,14 @@ class Mainpage extends Component {
                     </div>
                     <div className="main-panel__part--3">
                         <Link to={'/rp/joinup'}>
-                            <button className="signup-btn">Dołącz</button>
+                            <MainButton
+                                styles={{
+                                    height: '7rem',
+                                    width: '19rem',
+                                    marginTop: '3rem'
+                                }}
+                                title="Dołącz"
+                            />
                         </Link>
                     </div>
                 </section>

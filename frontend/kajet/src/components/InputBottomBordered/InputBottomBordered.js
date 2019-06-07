@@ -20,7 +20,7 @@ class InputBottomBordered extends Component {
                        placeholder={`${this.props.placeholder}`}
                        style={{width: this.props.styles.width,
                            borderBottom: this.state.error && '1px solid red'}}
-                />
+                        required/>
             </>
         );
     }

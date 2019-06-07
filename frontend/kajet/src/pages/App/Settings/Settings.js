@@ -4,6 +4,7 @@ import "./settings-page.scss"
 
 import apolloFetch from "../../../cfg/apollo-fetch"
 import { logOut } from "../../../security/auth/Auth"
+import MainButton from "../../../components/MainButton/MainButton";
 
 
 class Settings extends Component {
@@ -14,7 +15,8 @@ class Settings extends Component {
             name: "",
             email: "",
             oldPass: "",
-            newPass: ""
+            newPass: "",
+            onSuccessPassChange: false
         }
     }
 
@@ -87,42 +89,63 @@ class Settings extends Component {
     render() {
         return (
             <div className="settings-page">
-                <section className="remove-acc">
-                    <button>Usuń konto</button>
-                </section>
+                <div className="l-wrapper">
+                    <section className="name-change">
+                        <form onSubmit={this.changeUserName}>
+                            <input type="text"
+                                   value={this.state.name}
+                                   onChange={e => this.setState({name: e.target.value})}
+                                   required/>
 
-                <section className="name-change">
-                    <form onSubmit={this.changeUserName}>
-                        <input type="text"
-                               value={this.state.name}
-                               onChange={e => this.setState({name: e.target.value})}/>
-                        <button>Zmień imię</button>
-                    </form>
-                    
-                </section>
-                <section className="email-change">
-                    <form onSubmit={this.changeUserEmail}>
-                        <input type="email"
-                               value={this.state.email}
-                               onChange={e => this.setState({email: e.target.value})}/>
-                        <button>Zmień email</button>
-                    </form>
-                    
-                </section>
-                <section className="password-change">
-                    <form  onSubmit={this.changeUserPassword}>
-                        <input type="password"
-                               className="old-pass"
-                               placeholder="Stare hasło"
-                               onChange={e => this.setState({oldPassword: e.target.value})}/>
-                        <input type="password"
-                               className="new-pass"
-                               placeholder="Nowe hasło"
-                               onChange={e => this.setState({newPassword: e.target.value})}/>
-                        <button>Zmień hasło</button>
-                    </form>
+                            <MainButton
+                                styles={{
+                                    marginLeft: '3rem'
+                                }}
+                                title="Zmień imię" />
+                        </form>
 
-                </section>
+                    </section>
+                    <section className="email-change">
+                        <form onSubmit={this.changeUserEmail}>
+                            <input type="email"
+                                   value={this.state.email}
+                                   onChange={e => this.setState({email: e.target.value})}
+                                   required/>
+
+                            <MainButton
+                                styles={{
+                                    marginLeft: '3rem'
+                                }}
+                                title="Zmień email" />
+                        </form>
+
+                    </section>
+                    <section className="password-change">
+                        <form  onSubmit={this.changeUserPassword}>
+                            <input type="password"
+                                   className="old-pass"
+                                   placeholder="Stare hasło"
+                                   onChange={e => this.setState({oldPassword: e.target.value})}
+                                   required/>
+                            <input type="password"
+                                   className="new-pass"
+                                   placeholder="Nowe hasło"
+                                   onChange={e => this.setState({newPassword: e.target.value})}
+                                   required/>
+
+                            <MainButton
+                                styles={{
+                                    marginLeft: '3rem'
+                                }}
+                                title="Zmień hasło" />
+                        </form>
+
+                    </section>
+                </div>
+
+                <div className="r-wrapper">
+                        <button>Usuń konto</button>
+                </div>
             </div>
         );
     }

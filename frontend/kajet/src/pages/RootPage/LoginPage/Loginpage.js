@@ -8,6 +8,7 @@ import CustomPopup from '../../../components/CustomPopup/CustomPopup'
 
 
 import "./login-page.scss"
+import MainButton from "../../../components/MainButton/MainButton";
 
 
 class Loginpage extends Component {
@@ -26,7 +27,7 @@ class Loginpage extends Component {
 
         const logInRes = await logIn(this.state);
 
-        if(logInRes) this.props.history.push('/app/home');
+        if(logInRes) this.props.history.push('/app/collections');
         else this.setState({
             logInDataIncorrectnessPopUp: true
         })
@@ -52,11 +53,17 @@ class Loginpage extends Component {
                     <form className="login-sec__form" onSubmit={this.userAuth}>
                         <input type="email" className="login-sec__login"
                                onChange={e => this.setState({email: e.target.value})}
-                               placeholder="Twój email"/>
+                               placeholder="Twój email"
+                               required/>
                         <input type="password" className="login-sec__pass"
                                onChange={e => this.setState({password: e.target.value})}
-                               placeholder="Twoje hasło"/>
-                        <button type="submit" className="login-sec__login-btn">Zaloguj</button>
+                               placeholder="Twoje hasło"
+                               required/>
+
+                           <MainButton
+                                styles={{marginTop: "2rem"}}
+                                title="Zaloguj"
+                           />
 {/*
                         <div className="pass-recovery">
                             <Link to="/">

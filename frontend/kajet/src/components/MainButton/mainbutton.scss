@@ -1,0 +1,15 @@
+@import '../../assets/sass/variables.scss';
+
+.main-btn{
+  height: 4.5rem;
+  width: 15rem;
+  background: $color-blue;
+  color: white;
+  transition: .1s;
+
+  &:hover {
+    border: 1px solid $color-blue;
+    background: transparent;
+    color: $color-blue;
+  }
+}

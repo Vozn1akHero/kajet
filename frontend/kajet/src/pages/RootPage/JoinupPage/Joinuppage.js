@@ -1,13 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import Header from "../../../components/Header/Header";
-import {Link} from "react-router-dom";
-import Popup from "reactjs-popup";
-import { InputIncorrectness } from "../../../components/InputIncorrectness/InputIncorrectness";
 
 import {joinUp, checkEmail, checkIfUserIsLoggedIn} from "../../../security/auth/Auth";
 
 import CustomPopup from '../../../components/CustomPopup/CustomPopup'
-
+import MainButton from "../../../components/MainButton/MainButton";
 
 import "./joinup-page.scss"
 
@@ -63,18 +60,27 @@ class Joinuppage extends Component {
                     <form className="joinup-sec__form" onSubmit={this.userJoiningUp}>
                         <input type="text" className="joinup-sec__name"
                                onChange={e => this.setState({name: e.target.value})}
-                               placeholder="Twoje imię"/>
+                               placeholder="Twoje imię"
+                               required
+                        />
 
                         <input type="email" className="joinup-sec__email"
                                onChange={this.emailInsertionChecking}
-                               placeholder="Twój email"/>
+                               placeholder="Twój email"
+                               required
+                        />
                         {!this.state.emailStatus ? <span>Ten email jest zajęty przez innego użytkownika</span> : null}
 
                         <input type="password" className="joinup-sec__pass"
                                onChange={e => this.setState({password: e.target.value})}
-                               placeholder="Twoje hasło"/>
+                               placeholder="Twoje hasło"
+                               required
+                        />
 
-                        <button disabled={!this.state.emailStatus} style={!this.state.emailStatus ? {background: 'grey'} : null} type="submit" className="joinup-sec__joinup-btn">Zarejestruj się</button>
+                        <MainButton
+                            styles={{marginTop: "2rem"}}
+                            title="Zarejestruj się"
+                        />
                     </form>
                 </section>
             </div>
