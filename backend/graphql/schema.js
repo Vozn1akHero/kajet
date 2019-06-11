@@ -1,11 +1,6 @@
 import {
-    GraphQLID,
     GraphQLObjectType,
-    GraphQLString,
-    GraphQLSchema,
-    GraphQLList,
-    GraphQLNonNull,
-    GraphQLBoolean, GraphQLInputObjectType, GraphQLScalarType
+    GraphQLSchema
 } from "graphql";
 
 import CollectionMutations from './mutations/Collection'
