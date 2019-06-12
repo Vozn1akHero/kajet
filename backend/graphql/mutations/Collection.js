@@ -46,16 +46,7 @@ const CollectionMutations = {
         type: GraphQLBoolean,
         args: { id: { type: new GraphQLNonNull(GraphQLString)}},
         resolve: async (parent, { id }) => {
-            await Collection.deleteOne({ _id: id });
-            return true;
-        }
-    },
-    removeCollectionOfGroup: {
-        type: GraphQLBoolean,
-        args: { id: { type: new GraphQLNonNull(GraphQLString)}},
-        resolve: async (parent, { id }) => {
-            /*await Group.*/
-            return true;
+            return await Collection.deleteOne({ _id: id }, err => !err);
         }
     },
     changeCollectionTitle: {
