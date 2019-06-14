@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Header from "../../../components/Header/Header";
-import {Link} from "react-router-dom";
 
-import {checkIfUserIsLoggedIn, logIn} from "../../../security/auth/Auth";
+import {logIn} from "../../../security/auth/Auth";
 
 import CustomPopup from '../../../components/CustomPopup/CustomPopup'
 

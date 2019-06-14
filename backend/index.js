@@ -6,8 +6,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import jwt from 'express-jwt'
 
-import { ApolloServer } from 'apollo-server-express';
-
 import schema from './graphql/schema';
 
 const app = express();
@@ -16,7 +14,7 @@ const db = `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster
 
 const corsOptions = {
     origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200
 };
 
 app.use(bodyParser.urlencoded({
@@ -57,6 +55,7 @@ app.use(
 );
 
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+export default server;
 

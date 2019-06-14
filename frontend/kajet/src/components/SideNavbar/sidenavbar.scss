@@ -1,6 +1,8 @@
 @import '../../assets/sass/variables';
 
 .navigation {
+  z-index: 1;
+  position: fixed;
   width: 22%;
   height: 100vh;
 

@@ -1,17 +1,16 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import GroupCard from "../../../components/GroupCard/GroupCard";
 import CollectionCardForGroupsPage from '../../../components/CollectionCardForGroupsPage/CollectionCardForGroupsPage'
-import {Link} from "react-router-dom";
+
 
 import {connect} from "react-redux";
 import {getGroups, removeGroupById} from "../../../redux/actions/groupActions";
 
 import LoaderForSection from "../../../components/LoaderForSection/LoaderForSection";
 
-import svg from "../../../images/sprite.svg";
-
 
 import "./groups-page.scss"
+import AddWrapperForGroupsPage from "../../../components/AddWrapperForGroupsPage/AddWrapperForGroupsPage";
 class Groups extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +24,10 @@ class Groups extends Component {
 
     async componentWillMount() {
         await this.updateGroupList();
+
+        this.setState({
+            leftSideWrapperHeight: document.getElementsByClassName('wrapper1')[0].clientHeight
+        })
     }
 
     updateGroupList = async () => {
@@ -85,33 +88,10 @@ class Groups extends Component {
                         </section>
                     </div>
 
-                    <div className="wrapper2">
-                        <section className="add-info">
-                            <Link className="new-group-btn" to={'/app/newgroup'}>
-                                +
-                            </Link>
-
-
-                            <div className="groups-amount-info">
-                                <div className="groups-amount-info__text">
-                                    <span>Masz już</span>
-                                    <span>
-                                        {this.state.allGroups.length}
-                                    </span>
-                                    <span>grupy</span>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    className="col-amount-info__icon"
-                                >
-                                    <use xlinkHref={`${svg}#icon-sort-amount-asc`} />
-                                </svg>
-                            </div>
-
-                        </section>
-                    </div>
+                    <AddWrapperForGroupsPage
+                        height={this.state.leftSideWrapperHeight}
+                        groupsCount={this.state.allGroups.length}
+                    />
                 </div>
             );
         }

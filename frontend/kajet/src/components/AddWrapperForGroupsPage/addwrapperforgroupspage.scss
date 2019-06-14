@@ -1,0 +1,73 @@
+@import '../../assets/sass/variables';
+
+.addwrapperforgroupspage{
+    width: 30%;
+    background: $color-white;
+    float: left;
+    justify-content: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
+    .new-group-btn{
+      background: linear-gradient(295deg, #fff000 0%, #00b4f7 100%);
+      height: 5rem;
+      width: 5rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 50%;
+      font-size: 4rem;
+      font-weight: 100;
+
+      transition: .2s;
+
+      &:hover{
+        border: 1px solid #FFDC00;
+        background: none;
+        color: #FFDC00;
+      }
+    }
+
+    .add-info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5rem;
+
+      .groups-amount-info{
+        width: 80%;
+        height: 13rem;
+        margin-top: 5rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.15);
+
+        &__text{
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          span:nth-last-child(1), span:nth-last-child(3){
+            font-size: 1.3rem;
+          }
+
+          span:nth-last-child(2){
+            font-size: 2rem;
+            margin: .5rem 0;
+          }
+        }
+
+        svg{
+          width: 40%;
+          height: 40%;
+          fill: $color-blue;
+          align-self: center;
+        }
+      }
+    }
+}

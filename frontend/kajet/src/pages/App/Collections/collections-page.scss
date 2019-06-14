@@ -2,23 +2,17 @@
 
 .collections-page{
   background: $color-bg-lightgrey;
-  height: 100%;
+  min-height: 100%;
 
   .wrapper1{
+    display: grid;
     width: 70%;
     float: left;
   }
 
-  .wrapper2{
-    width: 30rem;
-    background: white;
-    height: 100vh;
-    float: left;
-    justify-content: center;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
-  }
 
   &__searching {
+    grid-area: 1 / 1;
     background: white;
     height: 17rem;
     width: 74rem;
@@ -27,48 +21,11 @@
   }
 
   &__collections-list{
-    margin-top: -6rem;
+    grid-area: 1 / 1;
+    margin-top: 10rem;
     z-index: 1000;
-    position: absolute;
+
     padding-left: 4rem;
   }
 
-  .add-info{
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem;
-
-    .col-amount-info{
-      width: 80%;
-      height: 13rem;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      box-shadow: 0 0 5px 0 rgba(0,0,0,.15);
-
-      &__text{
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        span:nth-last-child(1), span:nth-last-child(3){
-          font-size: 1.3rem;
-        }
-
-        span:nth-last-child(2){
-          font-size: 2rem;
-          margin: .5rem 0;
-        }
-      }
-
-      &__icon{
-        width: 40%;
-        height: 40%;
-        fill: $color-blue;
-        align-self: center;
-      }
-    }
-  }
 }

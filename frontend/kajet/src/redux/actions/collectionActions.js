@@ -63,10 +63,6 @@ export const getCollectionById = id => async dispatch => {
     })
 };
 
-export const getCollectionsByTitle = title => {
-
-};
-
 export const addCollection = collection => async dispatch => {
     let cardsString="";
 

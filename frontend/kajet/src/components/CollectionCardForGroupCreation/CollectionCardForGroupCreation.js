@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import './collection-card-for-group-creation.scss'
-import {Link} from "react-router-dom";
 
 class CollectionCardForGroupCreation extends Component{
     constructor(props) {
@@ -49,7 +48,7 @@ class CollectionCardForGroupCreation extends Component{
                     </div>
 
                     <div className="side-nav-wrapper"
-                         style={{ background: this.state.chosen ? '#f0f8ff' : 'f8f8f8' }}>
+                         style={{ background: this.state.chosen ? '#fff000' : 'linear-gradient(45deg, #fff000 0%, #00b4f7 100%)' }}>
                     </div>
                 </div>
             );

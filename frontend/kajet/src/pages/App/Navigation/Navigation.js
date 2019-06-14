@@ -24,7 +24,17 @@ class Navigation extends Component {
         };
     }
 
-    async componentWillMount() {
+    componentWillMount() {
+        this.onRouteChanged();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            this.onRouteChanged();
+        }
+    }
+
+    async onRouteChanged() {
         const res = await checkIfUserIsLoggedIn();
         if(res) this.setState({
             loading: false
@@ -49,7 +59,7 @@ class Navigation extends Component {
         }
 
         return (
-            <div className="navigation-page">
+            <>
                 <>
                     {
                         window.location.pathname === '/app/newcollection' ?
@@ -63,27 +73,31 @@ class Navigation extends Component {
                     }
                 </>
 
-                <SideNavbar logout={this.userLogOut}/>
+                <div className="navigation-page">
 
-                <section className="chosen-subpage">
-                    <Fragment>
-                        <Switch>
-                            <Redirect exact from='/app' to="/app/collections" />
 
-                            {/*<Route exact path={`/app/home`} component={Home} />*/}
-                            <Route exact path={`/app/collections`} component={Collections} />
-                            <Route exact path={`/app/collection/:id`} component={Collection} />
+                    <SideNavbar logout={this.userLogOut}/>
 
-                            <Route exact path={`/app/groups`} component={Groups} />
-                            <Route exact path={`/app/newgroup`} component={NewGroup} />
+                    <section className="chosen-subpage">
+                        <Fragment>
+                            <Switch>
+                                <Redirect exact from='/app' to="/app/collections" />
 
-                            <Route exact path={`/app/settings`} component={Settings} />
+                                {/*<Route exact path={`/app/home`} component={Home} />*/}
+                                <Route exact path={`/app/collections`} component={Collections} />
+                                <Route exact path={`/app/collection/:id`} component={Collection} />
 
-                            <Route exact path={`/app/newcollection`} component={NewCollection} />
-                        </Switch>
-                    </Fragment>
-                </section>
-            </div>
+                                <Route exact path={`/app/groups`} component={Groups} />
+                                <Route exact path={`/app/newgroup`} component={NewGroup} />
+
+                                <Route exact path={`/app/settings`} component={Settings} />
+
+                                <Route exact path={`/app/newcollection`} component={NewCollection} />
+                            </Switch>
+                        </Fragment>
+                    </section>
+                </div>
+            </>
         );
     }
 }

@@ -4,13 +4,10 @@
 .collection-card-ng{
   position: relative;
   background: $color-white;
-  width: 40rem;
   height: 13rem;
   display: flex;
   margin-bottom: 2rem;
   box-shadow: 0 0 5px 0 rgba(0,0,0,.15);
-
-  &:not(:first-child){ margin-left: 2rem;}
 
   .choose-collection-btn{
     position: absolute;
@@ -31,10 +28,6 @@
       span{
         color: grey;
       }
-    }
-
-    .terms-amount-wrapper{
-
     }
   }
 

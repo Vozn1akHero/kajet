@@ -58,12 +58,11 @@
       transition: .1s;
       height: 3.5rem;
       width: 12rem;
-      color: $color-bg-darkgrey;
+      color: #ff2f25;
 
       &:hover{
         border: 1px solid #ff2f25;
         background: transparent;
-        color: #ff2f25;
       }
     }
   }

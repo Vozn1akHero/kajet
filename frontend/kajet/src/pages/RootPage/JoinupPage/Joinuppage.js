@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import Header from "../../../components/Header/Header";
 
-import {joinUp, checkEmail, checkIfUserIsLoggedIn} from "../../../security/auth/Auth";
+import {joinUp, checkEmail} from "../../../security/auth/Auth";
 
 import CustomPopup from '../../../components/CustomPopup/CustomPopup'
 import MainButton from "../../../components/MainButton/MainButton";

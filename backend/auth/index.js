@@ -20,7 +20,7 @@ router.post('/login', async (req, res, next) => {
                password: user.password
            };
 
-           jwt.sign({userModelForToken}, process.env.JWT_KEY, {expiresIn: '60m'}, async (err, token) => {
+           jwt.sign({userModelForToken}, process.env.JWT_KEY, {expiresIn: '24h'}, async (err, token) => {
                await user.updateOne({ temporaryToken: token });
 
                res.json({token});

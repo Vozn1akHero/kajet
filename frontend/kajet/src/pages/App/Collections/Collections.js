@@ -7,10 +7,10 @@ import { getCollections, removeCollectionById } from '../../../redux/actions/col
 import LoaderForSection from "../../../components/LoaderForSection/LoaderForSection";
 
 import "./collections-page.scss"
-import svg from "../../../images/sprite.svg";
-import SearchInputBottomBordered from "../../../components/SearchInputBottomBordered/SearchInputBottomBordered";
 
-import {createSelector} from "reselect";
+import SearchInputBottomBordered from "../../../components/SearchInputBottomBordered/SearchInputBottomBordered";
+import AddWrapperForCollectionsPage
+    from "../../../components/AddWrapperForCollectionsPage/AddWrapperForCollectionsPage";
 
 class Collections extends Component {
     constructor(props) {
@@ -24,6 +24,10 @@ class Collections extends Component {
 
     async componentWillMount() {
         await this.updateCollectionList();
+
+        this.setState({
+            leftSideWrapperHeight: document.getElementsByClassName('wrapper1')[0].clientHeight
+        })
     }
 
     removeCollection = async id => {
@@ -79,27 +83,9 @@ class Collections extends Component {
                     </section>
                 </div>
 
-                <div className="wrapper2">
-                    <section className="add-info">
-                            <div className="col-amount-info">
-                                <div className="col-amount-info__text">
-                                    <span>Masz już</span>
-                                    <span>
-                                        {this.state.allCollections.length}
-                                    </span>
-                                    <span>kolekcje</span>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    className="col-amount-info__icon"
-                                >
-                                    <use xlinkHref={`${svg}#icon-sort-amount-asc`} />
-                                </svg>
-                            </div>
-                    </section>
-                </div>
+                <AddWrapperForCollectionsPage
+                    height={this.state.leftSideWrapperHeight}
+                    allCollectionsCount={this.state.allCollections.length} />
             </div>
         );
     }

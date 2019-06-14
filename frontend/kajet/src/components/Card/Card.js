@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 
 import svg from "../../images/sprite.svg";
 import "./card.scss"

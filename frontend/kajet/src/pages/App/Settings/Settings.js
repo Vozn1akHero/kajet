@@ -2,9 +2,16 @@ import React, {Component} from 'react';
 
 import "./settings-page.scss"
 
-import apolloFetch from "../../../cfg/apollo-fetch"
-import { logOut } from "../../../security/auth/Auth"
 import MainButton from "../../../components/MainButton/MainButton";
+import {connect} from "react-redux";
+
+import {getUserData,
+    changeUserName,
+    changeUserEmail} from "../../../redux/actions/userActions";
+
+import { changeUserPassword } from './additional-functions/changeUserPassword'
+
+import LoaderForSection from "../../../components/LoaderForSection/LoaderForSection";
 
 
 class Settings extends Component {
@@ -20,73 +27,40 @@ class Settings extends Component {
         }
     }
 
-    componentWillMount() {
-        apolloFetch({
-            query :  `
-              mutation{
-                  getUserNameAndEmail{
-                    name
-                    email
-                  }
-              }
-        `
-        }).then(res => {
-                const {name, email} = res.data.getUserNameAndEmail;
-                this.setState({
-                    name: name,
-                    email: email
-                });
-            }
-        );
+    async componentWillMount() {
+        await this.updateUserData();
     }
 
-    changeUserName = async e => {
-        e.preventDefault();
+    updateUserData = async () => {
+        await this.props.getUserData();
 
-        await apolloFetch({
-            query :  `
-              mutation{
-                  changeUserName(newName: "${this.state.name}")
-              }
-        `
-        }).then(res => res.data);
-
-        this.forceUpdate();
+        this.setState({
+            name: this.props.userData.name,
+            email: this.props.userData.email
+        });
     };
 
-    changeUserEmail = async e => {
+    changeUserName = e => {
         e.preventDefault();
 
-        await apolloFetch({
-            query :  `
-              mutation{
-                  changeUserEmail(newEmail: "${this.state.email}")
-              }
-        `
-        }).then(res => res.data);
-
-        this.forceUpdate();
+        this.props.changeUserName(this.state.name);
     };
 
-    changeUserPassword = async e => {
+    changeUserEmail = e => {
         e.preventDefault();
 
-        const res = await apolloFetch({
-            query :  `
-              mutation{
-                  changeUserPassword(oldPassword: "${this.state.oldPassword}",
-                   newPassword: "${this.state.newPassword}")
-              }
-        `
-        }).then(res => res.data.changeUserPassword);
+        this.props.changeUserEmail(this.state.email);
+    };
 
-        if(res) {
-            logOut();
-        }
-        else alert("Stare hasło nie jest prawidłowe");
+    changeUserPassword = e => {
+        e.preventDefault();
+
+        changeUserPassword(this.state.oldPass, this.state.newPass)
     };
 
     render() {
+        if (this.props.pending) return <LoaderForSection/>;
+
         return (
             <div className="settings-page">
                 <div className="l-wrapper">
@@ -151,4 +125,13 @@ class Settings extends Component {
     }
 }
 
-export default Settings;
+const mapStateToProps = state => ({
+    pending: state.user.pending,
+    userData: state.user.userData
+});
+
+
+export default connect(
+    mapStateToProps,
+    {getUserData, changeUserName, changeUserEmail}
+)(Settings);

@@ -1,4 +1,4 @@
-import React, {Component, Fragment, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Switch, Route, Redirect } from 'react-router-dom'
 import {checkIfUserIsLoggedIn} from "../../security/auth/Auth";
 
@@ -7,6 +7,7 @@ import Joinuppage from "./JoinupPage/Joinuppage";
 import Loginpage from "./LoginPage/Loginpage";
 
 import Loader from 'react-loader-spinner'
+import {Footer} from "../../components/Footer/Footer";
 
 const Rootpage = props => {
     const [loading, setLoadingValue] = useState(true);
@@ -30,7 +31,7 @@ const Rootpage = props => {
     }
 
     return (
-        <Fragment>
+        <>
             <Switch>
                 <Redirect exact from='/rp' to={`/rp/main`}/>
 
@@ -40,7 +41,9 @@ const Rootpage = props => {
 
                 <Route path={`/rp/login`} component={Loginpage} />
             </Switch>
-        </Fragment>);
+
+            <Footer />
+        </>);
 };
 
 export default Rootpage;

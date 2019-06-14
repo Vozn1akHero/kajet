@@ -47,10 +47,11 @@
       padding: 0 4rem;
 
       .found-collections-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2rem;
         margin-top: 5rem;
         min-height: 15rem;
-        display: flex;
-        flex-wrap: wrap;
       }
     }
   }

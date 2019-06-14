@@ -37,8 +37,6 @@ export async function joinUp({name, email, password}){
 }
 
 export async function checkEmail(email){
-    console.log(email);
-
     return await axios.post(`${url}/checkemail`, {
         data: { email }
     }).then(res => res.data.status ).catch(err => alert(err));
