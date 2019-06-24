@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
+import { Scrollbars } from 'react-custom-scrollbars';
+
 class App extends React.Component{
     constructor(props){
         super(props);
@@ -21,18 +23,22 @@ class App extends React.Component{
                 <div className="App">
                     <BrowserRouter>
                         <Fragment>
-                            <Switch>
-                                <Redirect exact path="/" to="/rp" />
+                            <Scrollbars style={{ width: '100vw', height: '100vh' }}
+                                        autoHide
+                                        autoHideTimeout={500}>
+                                <Switch>
+                                    <Redirect exact path="/" to="/rp" />
 
-                                <Route path="/rp" component={Rootpage} />
+                                    <Route path="/rp" component={Rootpage} />
 
-                                <Route
-                                    path="/app"
-                                    component={Navigation} />
+                                    <Route
+                                        path="/app"
+                                        component={Navigation} />
 
-                                <Route path="*" component={PageNotFound}/>
+                                    <Route path="*" component={PageNotFound}/>
 
-                            </Switch>
+                                </Switch>
+                            </Scrollbars>
                         </Fragment>
                     </BrowserRouter>
                 </div>

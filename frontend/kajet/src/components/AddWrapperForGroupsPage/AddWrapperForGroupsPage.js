@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {Link} from "react-router-dom";
 import svg from "../../images/sprite.svg";
 
 import "./addwrapperforgroupspage.scss"
 
-class AddWrapperForGroupsPage extends Component {
+class AddWrapperForGroupsPage extends PureComponent {
     render() {
         return (
             <div className="addwrapperforgroupspage"

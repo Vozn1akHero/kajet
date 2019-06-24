@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
 import './addwrapperforcollectionspage.scss'
 
 import svg from "../../images/sprite.svg";
 
-class AddWrapperForCollectionsPage extends Component {
+class AddWrapperForCollectionsPage extends PureComponent {
     render() {
         return (
             <div className="addwrapperforcollectionspage"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo }  from 'react';
 import Loader from 'react-loader-spinner'
 
 const LoaderForSection = () => {
@@ -18,4 +18,4 @@ const LoaderForSection = () => {
     );
 };
 
-export default LoaderForSection;
+export default memo(LoaderForSection);

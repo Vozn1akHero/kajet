@@ -1,0 +1,59 @@
+[33mcommit 111f2ee0c8984bfcd0f89f0f96f83170b2a50c5b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Fri Jun 14 13:55:07 2019 +0200
+
+    Added user reducer and changed styles on a few pages
+
+[33mcommit 65558440574d4d48d0e5d1ffdb88fdc34cbfbf33[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Wed Jun 12 15:20:08 2019 +0200
+
+    Removed a redundant resolver
+
+[33mcommit dfb02586be78020e4468fb6397bb70a016c9b58c[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Wed Jun 12 15:19:17 2019 +0200
+
+    Added tests of user type
+
+[33mcommit 19b8f9cbbce150353f249f5f64b0640b47b54281[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Wed Jun 12 15:18:30 2019 +0200
+
+    Added tests of collection type
+
+[33mcommit a68f6774a762c8a63c402c39c8dfc730630814d5[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Tue Jun 11 23:01:22 2019 +0200
+
+    Added unit tests of card type
+
+[33mcommit 64fc486e05b76051434a914d8bcee74474944d16[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Tue Jun 11 19:08:02 2019 +0200
+
+    Added unit tests for group type
+
+[33mcommit 8ee72f3e9fc1166c6f5037f440a35487283bdae6[m
+Author: Vozn1akHero <vozniachuk.dmytro@gmail.com>
+Date:   Tue Jun 11 19:03:00 2019 +0200
+
+    altered imports
+
+[33mcommit 6afc7f51314f349fe660e28d96752ad53f8d2124[m
+Author: Dima <vozniachuk.dmytro@gmail.com>
+Date:   Fri Jun 7 13:55:22 2019 +0200
+
+    Updated visuals and some feautures
+
+[33mcommit be8a251c9bb8f8405a59fc168d80faa847583dd2[m
+Author: Dima <vozniachuk.dmytro@gmail.com>
+Date:   Fri Jun 7 00:02:45 2019 +0200
+
+    Changed appereance of some componenets and divided graphql's files into separate chunks
+
+[33mcommit c462e077d4942756a37dd42c5daa9ea5c5fc211b[m
+Author: Dima <vozniachuk.dmytro@gmail.com>
+Date:   Sun Jun 2 18:52:21 2019 +0200
+
+    Commiting all files

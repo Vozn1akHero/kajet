@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import './mainbutton.scss'
 
@@ -14,4 +14,4 @@ const MainButton = props => {
     );
 };
 
-export default MainButton;
+export default memo(MainButton);
