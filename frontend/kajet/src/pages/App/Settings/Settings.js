@@ -12,6 +12,7 @@ import {getUserData,
 import { changeUserPassword } from './additional-functions/changeUserPassword'
 
 import LoaderForSection from "../../../components/LoaderForSection/LoaderForSection";
+import svg from "../../../images/sprite.svg";
 
 
 class Settings extends Component {
@@ -118,7 +119,16 @@ class Settings extends Component {
                 </div>
 
                 <div className="r-wrapper">
-                        <button>Usuń konto</button>
+                        <span>usuń konto:(</span>
+                        <button>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlnsXlink="http://www.w3.org/1999/xlink"
+                                className="collection-card__controls__icon"
+                            >
+                                <use xlinkHref={`${svg}#icon-bin2`} />
+                            </svg>
+                        </button>
                 </div>
             </div>
         );
